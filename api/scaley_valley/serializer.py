@@ -12,9 +12,10 @@ class ChainSerializer(ModelSerializer):
 class ValleySerializer(ModelSerializer):
     chain_name = ChainSerializer(many=False, read_only=True)
     bridge_contract = SerializerMethodField()
+    chain_icon = SerializerMethodField()
 
     class Meta:
-        fields = ('name', 'image_uri', 'description', 'chain', 'chain_name', 'bridge_contract')
+        fields = ('name', 'image_uri', 'description', 'chain', 'chain_name', 'chain_icon', 'bridge_contract')
         model = Valley
 
     def get_chain_name(self, valley: Valley):
@@ -25,6 +26,10 @@ class ValleySerializer(ModelSerializer):
             return valley.collateral_address
         else:
             return valley.collection_address
+
+    def get_chain_icon(self, valley: Valley):
+        return valley.chain.image_uri
+
 
 
 class ResourceSerializer(ModelSerializer):
