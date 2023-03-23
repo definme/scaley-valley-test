@@ -59,8 +59,8 @@ class PurchaseIndexer:
                 if len(topics) != 3:
                     print(f"Event #{index} skipped: bad topics length {len(topics)}")
                 try:
-                    transfer_from = w3.to_checksum_address(hex(int(topics[1].hex(), base=16)))
-                    transfer_to = w3.to_checksum_address(hex(int(topics[2].hex(), base=16)))
+                    transfer_from = w3.to_checksum_address('0x' + topics[1].hex()[-40:])
+                    transfer_to = w3.to_checksum_address('0x' + topics[2].hex()[-40:])
                 except Exception as e:
                     print(f"Event #{index} skipped: bad topics ({e})")
                     continue
