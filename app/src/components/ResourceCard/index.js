@@ -8,6 +8,7 @@ import Typography from '@mui/material/Typography'
 import { getERC20RecourceWithSigner } from '../../api/contracts'
 import { ConnectionContext } from '../../contexts/ConnectionContext'
 import networks from '../../networks.json'
+import styles from './ResourceCard.module.css'
 import { shortenAddress } from '../../utils'
 import {
   getOptimismTx,
@@ -16,6 +17,7 @@ import {
   initializeGnosisBridge,
 } from '../../api'
 import { CHANNEL_PK, CHANNEL_ADDRESS } from '../../constants'
+import {useNavigate} from "react-router-dom";
 
 const ValidationTextField = styled(TextField)({
   '& input': {
@@ -55,6 +57,7 @@ function ResourceCard({
   const [txHash, setTxHash] = useState()
   const [success, setSuccess] = useState()
   const [amount, setAmount] = useState('100')
+  const navigate = useNavigate()
 
   const sendNotification = async () => {
     try {
@@ -186,17 +189,23 @@ function ResourceCard({
       <img src={image_uri} alt='recource' width='100%' />
       <Box
         sx={{
-          mt: '20px',
+          mt: '10px',
           p: '15px',
           width: '100%',
           boxSizing: 'border-box',
         }}
       >
-        <Typography variant='caption' sx={{ display: 'block', mb: '10px' }}>
-          Description: Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        <Typography variant='caption' sx={{ display: 'block', mb: '10px', fontFamily: "'Inter', sans-serif",fontSize: '12px' }}>
+          Resources are used to purchase characters.
+          <span
+              onClick={() => navigate('/')}
+              className={styles.link}
+          >See character descriptions.</span>
         </Typography>
-        <Typography>Chain: {name}</Typography>
-        <Typography variant='h6' gutterBottom sx={{ fontWeight: '700' }}>
+        <Typography sx={{fontFamily: "'Inter', sans-serif",}}>
+          Chain: {name}
+        </Typography>
+        <Typography variant='h6' gutterBottom sx={{ fontWeight: '700',fontSize: '20px', fontFamily: "'Inter', sans-serif", }}>
           Price:{' '}
           {amount
             ? utils.formatEther(utils.parseEther(amount).div(price)).toString()
@@ -213,7 +222,7 @@ function ResourceCard({
             mb: '20px',
           }}
         >
-          <Typography>I need: </Typography>
+          <Typography sx={{fontFamily: "'Inter', sans-serif", fontSize: '20px'}}>I need: </Typography>
           <ValidationTextField
             id='outlined-number'
             label='amount'
@@ -221,7 +230,7 @@ function ResourceCard({
             InputLabelProps={{
               shrink: true,
             }}
-            sx={{ width: '60%' }}
+            sx={{ width: '60%', fontSize: '20px' }}
             value={amount}
             onChange={handleAmount}
           />
