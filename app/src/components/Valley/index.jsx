@@ -86,7 +86,7 @@ export default function Valley({ name, chain, description, image_uri }) {
                         mb: '48px',
                         width: '423px'
                     }}>
-          Description: {description}
+          {description}
         </Typography>
         <button
             className={'card__inner-btn'}

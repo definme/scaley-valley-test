@@ -73,7 +73,8 @@ function BuyCharacter({ renewResources }) {
           width: '100%',
           display: 'flex',
           flexWrap: 'wrap',
-          justifyContent: 'space-between',
+          justifyContent: 'center',
+            gap: '32px'
         }}
       >
         {characters.map((character, index) => (
