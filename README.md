@@ -27,7 +27,7 @@ ZkSync > zkSynk Rollup > Goerli
 
 Optimism > Optimistic Rollup > Goerli
 
-zkPolygon > Hyperlane > Goerli
+Polygon > Hyperlane > Goerli
 
 NFT characters can be moved across different networks (for this, we use Hyperlane’s bridge ). Players will be motivated to move tokens from one network to another to get access to different game content, such as valleys or perk boosters:
 
@@ -41,10 +41,11 @@ NFT characters can be moved across different networks (for this, we use Hyperlan
 
 ## Used technology stack
 
-- To develop the backend, we use a well-known Python library - Django and Django Rest Framework for rapid api development.
-- To develop, test and deploy contracts, we use Solidity (contracts), js and ts (testing and deployment). Also, we will use project SDKs to develop our solution.
-- We use ReactJS together with web3 libraries (ether, web3.js) to build the dapp’s user interface and ensure seamless interaction between users and the blockchain.  
-- Also, one of the most important elements of the project that we are implementing workers that will index the network and send transactions. These workers will be written in python. 
+- To develop the backend, we use a well-known Python library - Django and Django Rest Framework for rapid api development.This allowed us to quickly implement an admin panel through which we set contract addresses, network settings and enter some data for the frontend.
+- To develop, test and deploy contracts, we use Solidity (contracts), JS and TS (testing and deployment). Also, we will use project SDKs to develop our solution.
+- We use ReactJS with web3 libraries, as well as libraries of projects presented at the hackathon, (ether, web3.js, zksync-web3, pushprotocol) to build the dapp’s user interface and ensure seamless interaction between users and the blockchain.  
+- Also, one of the most important elements of the project that we are implementing workers that will index the network and send transactions. These workers will be written in python.
+- To receive a message about the completed action (purchase of a resource or purchase of a character) by the user, we used the [Push Protocol](https://push.org/). Our [Push Channel](https://staging.push.org/#/channels).
 
 The goal of scaley-valley is to offer users access to cross-chain game content, have a seamless gaming experience, and transfer tokens with lower fees.
 
@@ -53,14 +54,24 @@ The goal of scaley-valley is to offer users access to cross-chain game content, 
 ![tg_image_1028392436](https://user-images.githubusercontent.com/25884190/225343746-e8d17115-5fe2-434c-959a-03a14618c6da.jpeg)
 
 ## Cotracts addresses
+
 |      Cintract name     |     Network     |  Address  |
 | ---------------------- | --------------- | --------- |
 | ScaleyWalleyCollection |     Goerli      | [0x7a1Bf79FeA06Da1C7bb03Bbc729F1360ACa2080f](https://goerli.etherscan.io/address/0x7a1Bf79FeA06Da1C7bb03Bbc729F1360ACa2080f)|
 | Hyperlane Warp Router  |     Goerli      | [0x04F02C3D9C9190F0B66120e2945AF3740dBe485B](https://goerli.etherscan.io/address/0x04F02C3D9C9190F0B66120e2945AF3740dBe485B)|
 | Hyperlane Warp Router  | Optimism Goerli | [0x3De4Af596Ff7c0946Cf611f6c440Ec7b7BB24c46](https://goerli-optimism.etherscan.io/address/0x3De4Af596Ff7c0946Cf611f6c440Ec7b7BB24c46)|
 | Hyperlane Warp Router  | Polygon Mumbai  | [0xbDC8B9860F0B78e342C1C6c4b3870b8bAf2d75aA](https://mumbai.polygonscan.com/address/0xbDC8B9860F0B78e342C1C6c4b3870b8bAf2d75aA)|
+| Spendable token OPTIC  | Optimism Goerli  | [0xcb3D2498E189f4D0C5e3cDaBc96ad4469f5478d3](https://goerli-optimism.etherscan.io/address/0xcb3D2498E189f4D0C5e3cDaBc96ad4469f5478d3)|
+| Buy token OPTIC  | Goerli  | [0x398949f1fEb2fFFCC7fc90FcD15DfB6C8ad1b59B](https://goerli.etherscan.io/address/0x398949f1fEb2fFFCC7fc90FcD15DfB6C8ad1b59B)|
+| Trade contract(Druid) | Optimism Goerli | [0x7C173495a24DF0577D85f5B2d3c89a5f05f515a1](https://goerli-optimism.etherscan.io/address/0x7C173495a24DF0577D85f5B2d3c89a5f05f515a1)|
+| Spendable token WOOD  | Zksync  | [0x0fa56F22b437cD6D157BBAF429f82969f8f351e1](https://zksync2-testnet.zkscan.io/address/0x0fa56F22b437cD6D157BBAF429f82969f8f351e1)|
+| Buy token WOOD  | Zksync  | [0x0fa56F22b437cD6D157BBAF429f82969f8f351e1](https://zksync2-testnet.zkscan.io/address/0x0fa56F22b437cD6D157BBAF429f82969f8f351e1)|
+| Trade contract(Druid) | Zksync | [0x81dacf75Ecd37d706e47AbFfF69a1E9542caD0C4](https://zksync2-testnet.zkscan.io/address/0x81dacf75Ecd37d706e47AbFfF69a1E9542caD0C4)|
+| Spendable token WATR  | Gnosis Chiado  | [0xd94fe1A478772040BD0f8085C88eA19D99f7D29b](https://blockscout.com/gnosis/chiado/address/0xd94fe1A478772040BD0f8085C88eA19D99f7D29b)|
+| Buy token WATR  | Goerli  | [0xE99867282F28994a6a6a9FF43866a377B08482C8](https://goerli.etherscan.io/address/0xE99867282F28994a6a6a9FF43866a377B08482C8)|
+| Trade contract(Aquatique) | Gnosis Chiado | [0xE99867282F28994a6a6a9FF43866a377B08482C8](https://blockscout.com/gnosis/chiado/address/0xE99867282F28994a6a6a9FF43866a377B08482C8)|
 
-## Bridge example
+## Bridge NFT example
 
 |      Description     |     Tx     |
 | ---------------------- | --------------- |
