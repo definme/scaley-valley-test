@@ -1,0 +1,11 @@
+rulesets:
+  - python-security
+  - python-best-practices
+  - jsx-a11y
+  - python-code-style
+  - react-best-practices
+  - jsx-react
+  - python-inclusive
+  - javascript-client-security
+  - typescript-best-practices
+  - javascript-best-practices
